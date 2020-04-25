@@ -110,7 +110,7 @@ digraphs-search-symbol %{
             # Display first result before building menu. Awk fields: $1 = hex
             # value, $2 = symbol, $3 = description, $4 = digraph.
             printf %s\\n "$results" | head -n 1 | awk '
-                BEGIN { FS = "\t" } { printf "echo -- %{U+%s %s}\n", $1, $4 }
+                BEGIN { FS = "\t" } { printf "echo -- %%{U+%s %s}\n", $1, $4 }
             '
             printf %s\\n "$results" | awk '
                 BEGIN {
@@ -118,9 +118,9 @@ digraphs-search-symbol %{
                     printf "menu -select-cmds -- "
                 }
                 {
-                    printf "%{%s %s} ", $2, $3
-                    printf "%{digraphs-accept-symbol %{%s}} ", $2
-                    printf "%{echo -- %{U+%s %s}} ", $1, $4
+                    printf "%%{%s %s} ", $2, $3
+                    printf "%%{digraphs-accept-symbol %%{%s}} ", $2
+                    printf "%%{echo -- %%{U+%s %s}} ", $1, $4
                 }
             '
         }
