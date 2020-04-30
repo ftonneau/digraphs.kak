@@ -218,7 +218,7 @@ to `': dig <ret>'` and add this mapping to your `kakrc`.
 
 ## Installation
 
-Installation is manual.
+### Manual
 
 First, create a `digraphs` directory in `$HOME/.config/kak/`, and put the `digraphs.dat` datafile in
 
@@ -234,6 +234,17 @@ You may also want to add the following line to your `kakrc`:
 
 to have symbol search and digraph conversion enabled by default. (Of course, `<key1>` and `<key2>`
 should be replaced by the actual keys you want to use as shortcuts.)
+
+### With plug.kak
+
+Assuming you have `plug.kak` installed, add the following to your `kakrc`:
+
+    plug "ftonneau/digraphs.kak" %{
+        set-option global digraphs_path 'plugins/digraphs.kak'
+        digraphs-enable-on <key1> <key2>
+    }
+
+replacing `<key1>`and `<key2>`by the shortcut keys of your choice.
 
 ## Adding custom digraphs
 
